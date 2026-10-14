@@ -1,0 +1,41 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\ccard\OneDrive\Documents\P202602\la_ultima_transmision.json\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\ccard\OneDrive\Documents\P202602\la_ultima_transmision.json
+collecting ... collected 33 items
+
+tests/test_deshacer.py::test_u6_deshacer_restaura_escena_y_variables_y_consume_retroceso PASSED [  3%]
+tests/test_deshacer.py::test_u6_entrada_invalida_preserva_el_historial[no_existe] PASSED [  6%]
+tests/test_deshacer.py::test_u6_entrada_invalida_preserva_el_historial[bloqueada] PASSED [  9%]
+tests/test_deshacer.py::test_u6_nueva_eleccion_vuelve_a_habilitar_el_retroceso PASSED [ 12%]
+tests/test_deshacer.py::test_u6_deshacer_solo_revierte_la_ultima_eleccion PASSED [ 15%]
+tests/test_deshacer.py::test_u6_no_hay_retroceso_al_iniciar PASSED       [ 18%]
+tests/test_deshacer.py::test_u6_deshacer_desde_un_final PASSED           [ 21%]
+tests/test_deshacer.py::test_u5_reiniciar_elimina_el_historial PASSED    [ 24%]
+tests/test_deshacer.py::test_i1_deshacer_desde_un_final_con_archivo_real PASSED [ 27%]
+tests/test_deshacer.py::test_i1_ejemplo_del_anexo_de_la_hora_6 PASSED    [ 30%]
+tests/test_integracion.py::test_i1_archivo_real_hasta_un_final PASSED    [ 33%]
+tests/test_integracion.py::test_ca02_activar_con_codigo_no_se_puede_forzar PASSED [ 36%]
+tests/test_integracion.py::test_ca03_destino_inexistente_rechaza_la_carga PASSED [ 39%]
+tests/test_sesion.py::test_u1_condiciones_habilitan_solo_las_correspondientes PASSED [ 42%]
+tests/test_sesion.py::test_u2_eleccion_valida_aplica_efectos_y_avanza PASSED [ 45%]
+tests/test_sesion.py::test_u3_opcion_invalida_deja_estado_intacto[abrir] PASSED [ 48%]
+tests/test_sesion.py::test_u3_opcion_invalida_deja_estado_intacto[no_existe] PASSED [ 51%]
+tests/test_sesion.py::test_u5_reiniciar_restaura_estado_inicial PASSED   [ 54%]
+tests/test_sesion.py::test_final_se_reconoce PASSED                      [ 57%]
+tests/test_sesion.py::test_bloqueo_en_escena_no_final_sin_opciones_habilitadas PASSED [ 60%]
+tests/test_validacion.py::test_u4_errores_de_contenido_son_rechazados_con_mensaje[_inicio-'X9' no existe] PASSED [ 63%]
+tests/test_validacion.py::test_u4_errores_de_contenido_son_rechazados_con_mensaje[_escena_dup-ID de escena duplicado: 'A'] PASSED [ 66%]
+tests/test_validacion.py::test_u4_errores_de_contenido_son_rechazados_con_mensaje[_opcion_dup-ID de opci\xf3n duplicado 'tomar'] PASSED [ 69%]
+tests/test_validacion.py::test_u4_errores_de_contenido_son_rechazados_con_mensaje[_destino-'E99' no existe] PASSED [ 72%]
+tests/test_validacion.py::test_u4_errores_de_contenido_son_rechazados_con_mensaje[_var_condicion-'fantasma' no est\xe1 declarada] PASSED [ 75%]
+tests/test_validacion.py::test_u4_errores_de_contenido_son_rechazados_con_mensaje[_var_efecto-'fantasma' no est\xe1 declarada] PASSED [ 78%]
+tests/test_validacion.py::test_u4_errores_de_contenido_son_rechazados_con_mensaje[_no_booleano-no es booleano] PASSED [ 81%]
+tests/test_validacion.py::test_u4_errores_de_contenido_son_rechazados_con_mensaje[_falta_campo-falta el campo obligatorio 'titulo'] PASSED [ 84%]
+tests/test_validacion.py::test_u4_errores_de_contenido_son_rechazados_con_mensaje[_final_con_opciones-Escena 'C': es final] PASSED [ 87%]
+tests/test_validacion.py::test_u4_errores_de_contenido_son_rechazados_con_mensaje[_nofinal_sin_opciones-Escena 'B': no es final] PASSED [ 90%]
+tests/test_validacion.py::test_u4_archivo_inexistente PASSED             [ 93%]
+tests/test_validacion.py::test_u4_archivo_ilegible PASSED                [ 96%]
+tests/test_validacion.py::test_u4_estructura_incorrecta PASSED           [100%]
+
+============================= 33 passed in 0.45s ==============================

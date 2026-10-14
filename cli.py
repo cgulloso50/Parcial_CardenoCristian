@@ -10,29 +10,36 @@ RUTA_POR_DEFECTO = "historias/la_ultima_transmision.json"
 def jugar(sesion):
     while True:
         print(f"\n--- {sesion.escena_actual.id} ---\n{sesion.escena_actual.texto}")
+        opciones = sesion.opciones_disponibles()
         if sesion.esta_finalizada():
             print("\nFIN de la historia.")
-            if input("¿Jugar de nuevo? (s/n): ").strip().lower() == "s":
-                sesion.reiniciar()
-                continue
-            return
-        if sesion.esta_bloqueada():
+        elif sesion.esta_bloqueada():
             print("\nBLOQUEO: no hay opciones disponibles en esta escena.")
-            if input("¿Reiniciar? (s/n): ").strip().lower() == "s":
-                sesion.reiniciar()
-                continue
-            return
-        opciones = sesion.opciones_disponibles()
-        for n, o in enumerate(opciones, 1):
-            print(f"  {n}. {o.texto}")
-        entrada = input("Elija una opción (r = reiniciar, q = salir): ").strip().lower()
+        else:
+            for n, o in enumerate(opciones, 1):
+                print(f"  {n}. {o.texto}")
+
+        comandos = "r = reiniciar, "
+        if sesion.puede_deshacer():
+            comandos += "d = deshacer, "
+        comandos += "q = salir"
+        entrada = input(f"Elija una opción ({comandos}): ").strip().lower()
+
         if entrada == "q":
             return
         if entrada == "r":
             sesion.reiniciar()
+            print("\n>>> Partida reiniciada.")
+            continue
+        if entrada == "d":
+            try:
+                sesion.deshacer()
+                print("\n>>> Última decisión deshecha.")
+            except ErrorJugada as e:
+                print(f"Error: {e}")
             continue
         if not entrada.isdigit() or not 1 <= int(entrada) <= len(opciones):
-            print("Entrada no válida. Escriba el número de una opción.")
+            print("Entrada no válida.")
             continue
         try:
             sesion.elegir(opciones[int(entrada) - 1].id)
@@ -56,3 +63,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+    
