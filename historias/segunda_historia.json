@@ -1,1 +1,63 @@
-
+{
+  "titulo": "El faro apagado",
+  "inicio": "F1",
+  "variables": {
+    "tiene_luz": false
+  },
+  "escenas": [
+    {
+      "id": "F1",
+      "texto": "Llegas al pie de un faro apagado. Dentro de tu mochila hay una linterna.",
+      "final": false,
+      "opciones": [
+        {
+          "id": "encender",
+          "texto": "Encender la linterna",
+          "destino": "F2",
+          "condiciones": {},
+          "efectos": {"tiene_luz": true}
+        },
+        {
+          "id": "entrar_oscuras",
+          "texto": "Entrar a oscuras",
+          "destino": "F2",
+          "condiciones": {},
+          "efectos": {}
+        }
+      ]
+    },
+    {
+      "id": "F2",
+      "texto": "Una escalera de caracol sube hacia la lámpara del faro.",
+      "final": false,
+      "opciones": [
+        {
+          "id": "subir_con_luz",
+          "texto": "Subir iluminando los peldaños",
+          "destino": "F3",
+          "condiciones": {"tiene_luz": true},
+          "efectos": {}
+        },
+        {
+          "id": "subir_a_oscuras",
+          "texto": "Subir tanteando la pared",
+          "destino": "F4",
+          "condiciones": {"tiene_luz": false},
+          "efectos": {}
+        }
+      ]
+    },
+    {
+      "id": "F3",
+      "texto": "Llegas arriba sin tropezar y enciendes la lámpara. El faro vuelve a guiar a los barcos.",
+      "final": true,
+      "opciones": []
+    },
+    {
+      "id": "F4",
+      "texto": "Pierdes el equilibrio en la oscuridad y regresas al pie del faro, magullado. La lámpara sigue apagada.",
+      "final": true,
+      "opciones": []
+    }
+  ]
+}
