@@ -1,0 +1,32 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.12.9, pytest-8.4.2, pluggy-1.6.0 -- C:\Users\ccard\AppData\Local\Programs\Python\Python312\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\ccard\OneDrive\Documents\P202602\la_ultima_transmision.json
+plugins: anyio-4.15.1
+collecting ... collected 23 items
+
+tests/test_integracion.py::test_i1_archivo_real_hasta_un_final PASSED    [  4%]
+tests/test_integracion.py::test_ca02_activar_con_codigo_no_se_puede_forzar PASSED [  8%]
+tests/test_integracion.py::test_ca03_destino_inexistente_rechaza_la_carga PASSED [ 13%]
+tests/test_sesion.py::test_u1_condiciones_habilitan_solo_las_correspondientes PASSED [ 17%]
+tests/test_sesion.py::test_u2_eleccion_valida_aplica_efectos_y_avanza PASSED [ 21%]
+tests/test_sesion.py::test_u3_opcion_invalida_deja_estado_intacto[abrir] PASSED [ 26%]
+tests/test_sesion.py::test_u3_opcion_invalida_deja_estado_intacto[no_existe] PASSED [ 30%]
+tests/test_sesion.py::test_u5_reiniciar_restaura_estado_inicial PASSED   [ 34%]
+tests/test_sesion.py::test_final_se_reconoce PASSED                      [ 39%]
+tests/test_sesion.py::test_bloqueo_en_escena_no_final_sin_opciones_habilitadas PASSED [ 43%]
+tests/test_validacion.py::test_u4_errores_de_contenido_son_rechazados_con_mensaje[_inicio-'X9' no existe] PASSED [ 47%]
+tests/test_validacion.py::test_u4_errores_de_contenido_son_rechazados_con_mensaje[_escena_dup-ID de escena duplicado: 'A'] PASSED [ 52%]
+tests/test_validacion.py::test_u4_errores_de_contenido_son_rechazados_con_mensaje[_opcion_dup-ID de opci\xf3n duplicado 'tomar'] PASSED [ 56%]
+tests/test_validacion.py::test_u4_errores_de_contenido_son_rechazados_con_mensaje[_destino-'E99' no existe] PASSED [ 60%]
+tests/test_validacion.py::test_u4_errores_de_contenido_son_rechazados_con_mensaje[_var_condicion-'fantasma' no est\xe1 declarada] PASSED [ 65%]
+tests/test_validacion.py::test_u4_errores_de_contenido_son_rechazados_con_mensaje[_var_efecto-'fantasma' no est\xe1 declarada] PASSED [ 69%]
+tests/test_validacion.py::test_u4_errores_de_contenido_son_rechazados_con_mensaje[_no_booleano-no es booleano] PASSED [ 73%]
+tests/test_validacion.py::test_u4_errores_de_contenido_son_rechazados_con_mensaje[_falta_campo-falta el campo obligatorio 'titulo'] PASSED [ 78%]
+tests/test_validacion.py::test_u4_errores_de_contenido_son_rechazados_con_mensaje[_final_con_opciones-Escena 'C': es final] PASSED [ 82%]
+tests/test_validacion.py::test_u4_errores_de_contenido_son_rechazados_con_mensaje[_nofinal_sin_opciones-Escena 'B': no es final] PASSED [ 86%]
+tests/test_validacion.py::test_u4_archivo_inexistente PASSED             [ 91%]
+tests/test_validacion.py::test_u4_archivo_ilegible PASSED                [ 95%]
+tests/test_validacion.py::test_u4_estructura_incorrecta PASSED           [100%]
+
+============================= 23 passed in 0.35s ==============================
