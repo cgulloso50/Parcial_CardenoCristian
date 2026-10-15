@@ -1,0 +1,28 @@
+Evidencia RNF01 – Modificabilidad del contenido
+================================================
+
+Procedimiento: comparar los archivos del motor y la interfaz entre la etiqueta v1-base
+(versión inicial sin segunda historia) y HEAD (versión final con segunda historia agregada).
+
+Comando ejecutado:
+  git diff --stat v1-base HEAD -- motor/ cli.py
+
+Resultado:
+  cli.py          | 36 ++++++++++++++++++++++--------------
+  motor/sesion.py | 15 ++++++++++++++-
+  2 files changed, 36 insertions(+), 15 deletions(-)
+
+Interpretación:
+  Los cambios en cli.py y motor/sesion.py corresponden exclusivamente a la
+  implementación del retroceso (RF15-RF19, solicitud de cambio de la hora 6).
+  Agregar la segunda historia (historias/segunda_historia.json) no modificó
+  ninguna línea de motor/ ni de cli.py, lo que demuestra el cumplimiento de RNF01:
+
+    "Agregar una historia nueva o editar escenas requiere 0 líneas modificadas
+     en motor/ y cli.py."
+
+Verificación adicional:
+  La prueba test_segunda_historia.py::test_segunda_historia_carga_con_el_mismo_motor
+  confirma que la segunda historia carga y se juega sin cambiar el motor.
+  La prueba test_condicion_cambia_las_opciones_y_el_final cubre ambas rutas narrativas.
+  Resultado: 4/4 pruebas de segunda historia PASSED.

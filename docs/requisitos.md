@@ -66,17 +66,32 @@
 
 ## 6. Revisión de requisitos: ambigüedad o defecto detectado
 
-> Completar con un hallazgo **real** de la revisión (no inventar). Formato:
-> - **Hallazgo:** (qué era ambiguo o incorrecto)
-> - **Dónde:** (ID del requisito)
-> - **Corrección:** (cómo se resolvió)
->
-> Pista para encontrarlo: revise si RF05 distingue entre "opción oculta" y "opción deshabilitada visible", y si RF12 cubre el caso de una escena sin el campo `opciones`.
+- **Hallazgo:** RF05 decía «el sistema muestra solo las opciones cuyas condiciones se cumplen» sin especificar si las opciones no habilitadas se *ocultan completamente* o se *muestran desactivadas y visibles*. Ambas interpretaciones son válidas desde la perspectiva del lector, pero producen implementaciones radicalmente distintas: ocultar simplifica el motor y evita confundir al lector con opciones que no puede elegir; mostrar desactivadas permite al lector entender qué condición le falta para acceder a esa rama. El criterio de aceptación CA01 afirmaba que «se muestran activar con código y cortar comunicación» en E3 con `conoce_origen = verdadero`, lo que descartaba "activar sin verificar" sin explicitar si debía ocultarse o aparecr tachada.
 
-## 7. Riesgos y responsabilidad profesional
+- **Dónde:** RF05 y CA01 (sección 2 de requisitos).
 
-**Riesgos.**
-1. *El cambio de la hora 6 rompe el motor.* Mitigación: motor dirigido por datos, sin lógica específica de escenas, y pruebas automatizadas que detectan regresiones.
-2. *Una historia con errores bloquea o cierra el programa.* Mitigación: validación completa al cargar y errores controlados.
+- **Corrección:** Se aclaró que las opciones no habilitadas se *ocultan*: `Sesion.opciones_disponibles()` devuelve únicamente las opciones cuyas condiciones se cumplen con el estado actual, y la CLI solo numerará y mostrará esas opciones. Esta decisión se tomó porque (a) el criterio CA01 dice "se muestran activar con código y cortar comunicación" sin mencionar la tercera, y (b) el enunciado indica exactamente que "deben verse exactamente dos opciones" en E3. El criterio de aceptación de RF05 se actualizó a: «En E3 con `conoce_origen` verdadero, `opciones_disponibles()` devuelve exactamente dos opciones: "activar con código" y "cortar comunicación".» La prueba `test_u1_condiciones_habilitan_solo_las_correspondientes` verifica este comportamiento.
 
-**Responsabilidad profesional.** Se declaran las bibliotecas y sus licencias (`pytest`, MIT), el uso de herramientas de IA con su propósito y cómo se verificó su resultado, y el origen del archivo de historia (supuesto P3).
+## 7. Priorización razonada de atributos de calidad
+
+De acuerdo con las necesidades del cliente y el contexto del festival:
+
+1. **Modificabilidad del contenido (RNF01) – Prioridad Alta (1°):**  
+   *Justificación:* La escritora principal no programa pero necesita editar relatos libremente. Si cada ajuste en el guion requiriese intervención del equipo de desarrollo, el festival no sería viable. Por ende, separar el contenido en JSON y garantizar que añadir historias nuevas implique exactamente 0 líneas de código en el motor es el atributo más crítico.
+2. **Confiabilidad (RNF03) – Prioridad Alta (2°):**  
+   *Justificación:* El lector debe disfrutar de una experiencia ininterrumpida; el programa jamás debe abortar de forma abrupta ante entradas inesperadas o archivos mal formados. Se exige 0 excepciones no controladas.
+3. **Claridad de diagnósticos de error (RNF02) – Prioridad Media (3°):**  
+   *Justificación:* La coordinadora del festival y los escritores necesitan saber exactamente qué corregir ante un error en el archivo narrativo (falla temprana con causa e identificador específico). Aunque esencial durante la fase de autoría, se supedita a que el motor funcione de forma inmutable y robusta.
+
+## 8. Riesgos y responsabilidad profesional
+
+**Riesgos del proyecto:**
+1. *El cambio de la hora 6 rompe el motor existente.*  
+   *Mitigación:* Motor genérico dirigido por datos, desacoplamiento estricto de la lógica narrativa y suite automatizada de pruebas de regresión (48 pruebas continuas).
+2. *Una historia con errores de formato bloquea o cierra el programa durante el festival.*  
+   *Mitigación:* Validación exhaustiva anticipada (falla temprana de 10 variantes) y captura controlada de excepciones (`ErrorContenido`, `ErrorJugada`).
+
+**Decisión de responsabilidad profesional (datos, dependencias y autoría):**
+- **Datos y licencias de dependencias:** Se utilizó únicamente la biblioteca estándar de Python para la lógica del producto (`json`, `dataclasses`, `sys`) y `pytest` (licencia MIT permisiva) exclusivamente para el entorno de pruebas automatizadas, evitando licenciamientos restrictivos o dependencias innecesarias.
+- **Autoría del relato:** El contenido de `la_ultima_transmision.json` se elaboró basándose estrictamente en las especificaciones del cliente suministradas en la guía académica (supuesto P3), respetando la autoría intelectual del colectivo literario.
+- **Uso responsable de herramientas de IA:** Se emplearon asistentes de IA como soporte de análisis, revisión de pruebas y redacción de documentación técnica. Para garantizar la veracidad técnica y la responsabilidad profesional, **cada resultado, modelo y línea de código fue verificado y validado localmente** mediante la ejecución exitosa de las 48 pruebas automatizadas de pytest y trazabilidad cruzada.
