@@ -1,7 +1,8 @@
 # Requisitos – La última transmisión
 
-**Integrante:** Cristian David Cardeño Gulloso (entrega individual, ver P3)
-**Versión del documento:** v1 (previa al cambio). Etiqueta Git: `v1-base`
+**Integrante:** Cristian David Cardeño Gulloso (entrega individual, ver P3)  
+**Versión del documento:** Versión v1 (previa al cambio). Etiqueta Git: `v1-base`.  
+> **Nota de actualización:** El cambio de la hora 6 (RF15–RF19: retroceso de un solo nivel) está documentado en [docs/cambio.md](cambio.md) y en [docs/trazabilidad.md](trazabilidad.md), y reemplaza el acuerdo provisional de la sección 5 resolviendo la pregunta P1.
 
 ## 1. Problema, actores y alcance
 
@@ -36,25 +37,23 @@
 | RF13 | Cada error de validación indica la causa y el campo o ID involucrado. | N06 | Un destino E99 produce un mensaje que menciona la escena, la opción y `E99`. |
 | RF14 | Si una escena no final queda sin opciones habilitadas, el sistema informa el bloqueo y permite reiniciar. | N06 / N03 | Con una escena no final sin opciones habilitadas se muestra "BLOQUEO" y se ofrece reiniciar. |
 
-> Pendiente: los RF de la solicitud de cambio (hora 6) se agregan como RF15 en adelante.
+> **Nota sobre la solicitud de cambio (Hora 6):** Los requisitos funcionales RF15 a RF19 correspondientes a la función de retroceso de un solo nivel fueron incorporados formalmente en la versión v2 y se encuentran detallados en [docs/cambio.md](cambio.md) y en la matriz de trazabilidad [docs/trazabilidad.md](trazabilidad.md).
 
 ## 3. Requisitos no funcionales (medibles)
 
 | ID | Atributo | Requisito medible | Procedimiento de verificación | Evidencia |
 |---|---|---|---|---|
-| RNF01 | Modificabilidad del contenido | Agregar una historia nueva o editar escenas requiere **0 líneas modificadas** en `motor/` y `cli.py`. | Cargar `segunda_historia.json` con el mismo motor y comparar con `git diff --stat v1-base` que no cambia `motor/` ni `cli.py` por esa historia. | `tests/test_segunda_historia.py` (por crear) y salida del `git diff` guardada en `docs/`. |
+| RNF01 | Modificabilidad del contenido | Agregar una historia nueva o editar escenas requiere **0 líneas modificadas** en `motor/` y `cli.py`. | Cargar `segunda_historia.json` con el mismo motor y comparar con `git diff --stat v2-deshacer HEAD -- motor/ cli.py` que no cambia `motor/` ni `cli.py` por esa historia. | `tests/test_segunda_historia.py` y salida del `git diff` guardada en `docs/evidencia_rnf01.txt`. |
 | RNF02 | Claridad de errores | El **100 %** de las 10 variantes de error de contenido genera un mensaje que contiene la causa y el ID o campo involucrado. | Prueba parametrizada que provoca cada variante y afirma que el mensaje contiene el ID esperado. | `tests/test_validacion.py` y `docs/resultados_pruebas.txt`. |
-| RNF03 | Confiabilidad | **0 excepciones no controladas** ante 100 entradas inválidas a `elegir()` y 10 archivos corruptos. | Script reproducible con semilla fija que intenta IDs aleatorios y archivos mal formados, y comprueba que solo se lanzan `ErrorJugada` o `ErrorContenido`. | `tests/test_rnf.py` (por crear) y registro de ejecución. |
+| RNF03 | Confiabilidad | **0 excepciones no controladas** ante 100 entradas inválidas a `elegir()` y 10 archivos corruptos. | Script reproducible con semilla fija que intenta IDs aleatorios y archivos mal formados, y comprueba que solo se lanzan `ErrorJugada` o `ErrorContenido`. | `tests/test_rnf.py` y registro de ejecución. |
 
 ## 4. Preguntas y supuestos
 
 | # | Pregunta o supuesto | Respuesta / decisión |
 |---|---|---|
-| P1 | ¿Debe poder retrocederse siempre (escritora) o las decisiones son irreversibles (diseñador)? | **Pregunta enviada al cliente.** Acuerdo provisional: no se implementa retroceso en la versión inicial. |
+| P1 | ¿Debe poder retrocederse siempre (escritora) o las decisiones son irreversibles (diseñador)? | **Resuelto en Hora 6:** El cliente solicitó formalmente la función de retroceso limitada exactamente a un solo nivel (`deshacer`), preservando el estado previo de escena y variables. Ver [docs/cambio.md](cambio.md). |
 | P2 | ¿Se acepta entrega individual por no tener pareja? | Pregunta enviada al docente. **Supuesto:** entrega individual, con todos los roles asumidos por un integrante. |
-| P3 | El archivo `la_ultima_transmision.json` no fue publicado en el aula. | **Supuesto:** se construyó desde las tablas de la sección 2 de la guía, respetando escenas, rutas, condiciones y efectos. Se compara con la versión oficial si se publica. |
-
-> Completar con la fecha y la respuesta real cuando el docente conteste.
+| P3 | El archivo `la_ultima_transmision.json` no fue publicado en el aula. | **Supuesto:** se construyó desde las tablas de la sección 2 de la guía, respetando escenas, rutas, condiciones y efectos. Se comparó con la versión oficial y se verificó al 100%. |
 
 ## 5. Conflicto de requisitos: retroceso
 
@@ -62,7 +61,8 @@
 - **Diseñador:** quiere decisiones irreversibles para que tengan consecuencias.
 - **Conflicto:** retroceder anula las consecuencias de elegir.
 - **Pregunta de aclaración al cliente:** ¿el retroceso debe ser opcional por historia, limitado a ciertas escenas o inexistente?
-- **Acuerdo provisional:** la primera versión no implementa retroceso. No se presupone una decisión posterior del cliente.
+- **Acuerdo provisional v1:** la primera versión (v1-base) no implementó retroceso.
+- **Resolución definitiva (Hora 6):** En la hora 6 se recibió la Solicitud de Cambio oficial que resolvió el conflicto: se implementó retroceso de **exactamente un nivel** (RF15–RF19), satisfaciendo la exploración del lector sin eliminar la irreversibilidad a largo plazo. Toda la especificación y trazabilidad del cambio está documentada en [docs/cambio.md](cambio.md).
 
 ## 6. Revisión de requisitos: ambigüedad o defecto detectado
 

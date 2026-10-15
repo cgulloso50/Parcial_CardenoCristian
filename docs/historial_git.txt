@@ -1,0 +1,34 @@
+4d51aef | 2026-10-14 | Cristian Cardeño |  (HEAD -> main, origin/main, origin/HEAD) chore: remover informes, anexos y capturas (preservados para entrega en aula virtual)
+606609b | 2026-10-14 | Cristian Cardeño |  docs: anadir versiones HTML imprimibles a PDF para informe y anexo
+0aa9f30 | 2026-10-14 | Cristian Cardeño |  docs: actualizar registro de historial Git
+a5e556c | 2026-10-14 | Cristian Cardeño |  docs: organizar indice de documentacion en docs/README.md y actualizar .gitignore
+07c331e | 2026-10-14 | Cristian Cardeño |  docs: completar entrega final (informe, anexo, modelos, trazabilidad, tableros y pruebas RNF)
+cd840a0 | 2026-10-14 | Cristian Cardeño |  feat: segunda historia y prueba de carga con el mismo motor
+6682ed8 | 2026-10-14 | Cristian Cardeño |  docs: evidencia RNF01 (motor sin cambios) y resultados de pruebas
+11d119e | 2026-10-14 | Cristian Cardeño |  (tag: v2-deshacer) feat: deshacer última decisión (RF15-RF19) con pruebas U6, U5 e I1 extendidas
+0f24b4d | 2026-10-14 | Cristian Cardeño |  (tag: v1-pre-cambio) chore: usar JSON oficial y guardar solicitud de cambio (versión previa al cambio)
+309cca3 | 2026-10-14 | Cristian Cardeño |  (tag: v1-base) docs: registro de ejecución de pruebas (23 pasan)
+f282a7a | 2026-10-14 | Cristian Cardeño |  feat: motor, cargador, CLI, historia inicial y pruebas (23 pasan)
+966bc3a | 2026-10-14 | Cristian Cardeño |  Add project details and team members to README
+44988ff | 2026-10-14 | Cristian Cardeño |  Add pytest to requirements
+f7a45c7 | 2026-10-14 | Cristian Cardeño |  Add Python-related entries to .gitignore
+de0e067 | 2026-10-14 | Cristian Cardeño |  Create trazabilidad.md
+f5c2d80 | 2026-10-14 | Cristian Cardeño |  Create requisitos.md
+b3b1bf3 | 2026-10-14 | Cristian Cardeño |  Create README.md
+33202c0 | 2026-10-14 | Cristian Cardeño |  Create test_integracion.py
+e781a63 | 2026-10-14 | Cristian Cardeño |  Create test_validacion.py
+45a4b3e | 2026-10-14 | Cristian Cardeño |  Create test_sesion.py
+0beddd6 | 2026-10-14 | Cristian Cardeño |  Create __init__.py
+baba70f | 2026-10-14 | Cristian Cardeño |  Create segunda_historia.json
+f485841 | 2026-10-14 | Cristian Cardeño |  Create la_ultima_transmision.json
+3ad3c3b | 2026-10-14 | Cristian Cardeño |  Create cli.py
+f99e3fd | 2026-10-14 | Cristian Cardeño |  Create sesion.py
+d22682c | 2026-10-14 | Cristian Cardeño |  Create cargador.py
+5b9023d | 2026-10-14 | Cristian Cardeño |  Create errores.py
+f3320f5 | 2026-10-14 | Cristian Cardeño |  Create modelos.py
+5c0340c | 2026-10-14 | Cristian Cardeño |  Create __init__.py
+955f554 | 2026-10-14 | Cristian Cardeño |  Create .gitignore
+af93051 | 2026-10-14 | Cristian Cardeño |  Create requirements.txt
+b270c96 | 2026-10-14 | Cristian Cardeño |  Create README.md
+2eee6f5 | 2026-10-14 | Cristian Cardeño |  .gitignore/
+e364507 | 2026-10-14 | Cristian Cardeño |  Create    README.md

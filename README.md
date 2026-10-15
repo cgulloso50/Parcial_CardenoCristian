@@ -1,7 +1,14 @@
 # La última transmisión — Motor de ficción interactiva
 
 **Integrante:** Cristian David Cardeño Gulloso  
-**Parcial práctico de Ingeniería de Software**
+**Parcial práctico de Ingeniería de Software**  
+**Repositorio:** https://github.com/cgulloso50/la_ultima_transmision.json  
+**Video de sustentación (Google Drive):** https://drive.google.com/file/d/1lawAyWL4AtqU6TxzOjwR42kpyM4F0g-7/view?usp=sharing
+
+---
+
+## Enlace del video de sustentación
+- **URL Google Drive:** https://drive.google.com/drive/folders/sustentacion-parcial-cardeno
 
 ---
 

@@ -30,3 +30,15 @@ En esta carpeta se encuentran los documentos técnicos de diseño, arquitectura,
 |---|---|
 | [**`evidencia_rnf01.txt`**](evidencia_rnf01.txt) | Salida del comando `git diff` que demuestra **0 líneas modificadas** en el motor para soportar la segunda historia. |
 | [**`resultados_pruebas_v3.txt`**](resultados_pruebas_v3.txt) | Registro de la última ejecución de pytest: **48 pruebas PASSED en 0.39 s**. |
+| [**`tablero_inicial.png`**](tablero_inicial.png) | Captura del tablero Kanban inicial (reconstruido en Microsoft Planner a partir del backlog). |
+| [**`tablero_final.png`**](tablero_final.png) | Captura del tablero Kanban final con la totalidad de tareas completadas. |
+
+---
+
+## 📄 Informes y Anexos Técnicos
+
+| Documento | Formato Markdown | Formato HTML | Descripción |
+|---|---|---|---|
+| **Informe Final** | [**`informe.md`**](informe.md) | [**`informe.html`**](informe.html) | Informe técnico principal según la estructura de la guía (Unidades 1 a 7). |
+| **Anexo Técnico** | [**`anexo.md`**](anexo.md) | [**`anexo.html`**](anexo.html) | Anexo técnico con capturas de tableros, diagramas Mermaid, matriz de trazabilidad y guion de video. |
+| **Historial Git** | [**`historial_git.txt`**](historial_git.txt) | Texto plano | Log completo de commits y etiquetas del repositorio. |

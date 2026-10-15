@@ -1,28 +1,34 @@
 Evidencia RNF01 – Modificabilidad del contenido
 ================================================
 
-Procedimiento: comparar los archivos del motor y la interfaz entre la etiqueta v1-base
-(versión inicial sin segunda historia) y HEAD (versión final con segunda historia agregada).
+Procedimiento: comparar los archivos del motor y la interfaz entre la etiqueta v2-deshacer
+(versión con la solicitud de cambio de la hora 6 implementada, previa a la incorporación de la
+segunda historia) y HEAD (versión final que incluye la segunda historia de demostración).
 
 Comando ejecutado:
-  git diff --stat v1-base HEAD -- motor/ cli.py
+  git diff --stat v2-deshacer HEAD -- motor/ cli.py
 
 Resultado:
-  cli.py          | 36 ++++++++++++++++++++++--------------
-  motor/sesion.py | 15 ++++++++++++++-
-  2 files changed, 36 insertions(+), 15 deletions(-)
+  (Salida vacía: 0 archivos modificados, 0 inserciones, 0 eliminaciones)
 
 Interpretación:
-  Los cambios en cli.py y motor/sesion.py corresponden exclusivamente a la
-  implementación del retroceso (RF15-RF19, solicitud de cambio de la hora 6).
-  Agregar la segunda historia (historias/segunda_historia.json) no modificó
-  ninguna línea de motor/ ni de cli.py, lo que demuestra el cumplimiento de RNF01:
+  La incorporación de la segunda historia ("El faro apagado", historias/segunda_historia.json)
+  se realizó sin modificar una sola línea de código en el motor (motor/) ni en la interfaz de
+  usuario (cli.py). Esto comprueba de manera directa e inobjetable el cumplimiento de RNF01:
 
     "Agregar una historia nueva o editar escenas requiere 0 líneas modificadas
      en motor/ y cli.py."
 
-Verificación adicional:
-  La prueba test_segunda_historia.py::test_segunda_historia_carga_con_el_mismo_motor
-  confirma que la segunda historia carga y se juega sin cambiar el motor.
-  La prueba test_condicion_cambia_las_opciones_y_el_final cubre ambas rutas narrativas.
-  Resultado: 4/4 pruebas de segunda historia PASSED.
+Nota sobre v1-base vs. v2-deshacer:
+  Si se compara contra v1-base (`git diff --stat v1-base HEAD -- motor/ cli.py`), aparecen
+  modificaciones en cli.py y motor/sesion.py. Dichos cambios corresponden exclusivamente a la
+  implementación de la Solicitud de Cambio de la hora 6 (RF15-RF19: retroceso de un nivel),
+  y no a la inclusión de nuevos relatos. Al comparar contra v2-deshacer, el resultado es 0 líneas.
+
+Verificación complementaria mediante pruebas automatizadas:
+  La suite de pruebas tests/test_segunda_historia.py ejecuta 4 pruebas automatizadas con el
+  mismo motor sin alteración alguna:
+  - test_segunda_historia_carga_con_el_mismo_motor: PASSED
+  - test_condicion_cambia_las_opciones_y_el_final (ambas ramas): PASSED
+  - test_variables_declaradas_correctas: PASSED
+  - test_escenas_y_opciones_coherentes: PASSED
