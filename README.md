@@ -8,8 +8,7 @@
 ---
 
 ## Enlace del video de sustentación
-- **URL Google Drive:** https://drive.google.com/drive/folders/sustentacion-parcial-cardeno
-
+- **URL Google Drive:** https://drive.google.com/file/d/1lawAyWL4AtqU6TxzOjwR42kpyM4F0g-7/view?usp=sharing
 ---
 
 ## Requisitos
