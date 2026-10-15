@@ -1,5 +1,7 @@
-﻿cd840a0 | 2026-10-14 | Cristian Carde├▒o |  (HEAD -> main) feat: segunda historia y prueba de carga con el mismo motor
-6682ed8 | 2026-10-14 | Cristian Carde├▒o |  (origin/main, origin/HEAD) docs: evidencia RNF01 (motor sin cambios) y resultados de pruebas
+﻿a5e556c | 2026-10-14 | Cristian Carde├▒o |  (HEAD -> main) docs: organizar indice de documentacion en docs/README.md y actualizar .gitignore
+07c331e | 2026-10-14 | Cristian Carde├▒o |  (origin/main, origin/HEAD) docs: completar entrega final (informe, anexo, modelos, trazabilidad, tableros y pruebas RNF)
+cd840a0 | 2026-10-14 | Cristian Carde├▒o |  feat: segunda historia y prueba de carga con el mismo motor
+6682ed8 | 2026-10-14 | Cristian Carde├▒o |  docs: evidencia RNF01 (motor sin cambios) y resultados de pruebas
 11d119e | 2026-10-14 | Cristian Carde├▒o |  (tag: v2-deshacer) feat: deshacer ├║ltima decisi├│n (RF15-RF19) con pruebas U6, U5 e I1 extendidas
 0f24b4d | 2026-10-14 | Cristian Carde├▒o |  (tag: v1-pre-cambio) chore: usar JSON oficial y guardar solicitud de cambio (versi├│n previa al cambio)
 309cca3 | 2026-10-14 | Cristian Carde├▒o |  (tag: v1-base) docs: registro de ejecuci├│n de pruebas (23 pasan)
